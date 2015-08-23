@@ -31,8 +31,8 @@ html {
 .gallery.initialized li {
 	background: rgba(255,255,255,0.67);
 	position: absolute;
-	-webkit-transition: transform 0.5s;
-	        transition: transform 0.5s;
+	-webkit-transition: transform 0.5s ease;
+	        transition: transform 0.5s ease;
 }
 	.gallery.initialized li p {
 		opacity: 0;
