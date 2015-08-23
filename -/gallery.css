@@ -44,11 +44,11 @@ html {
 			opacity: 1;
 		}
 	/* set stack order, positions and scales */
-	.gallery.initialized li[data-position='-9'] { z-index: 0; transform: translateX(-50%) scale(0.1); -webkit-transform: translateX(-50%) scale(0.1); }
-	.gallery.initialized li[data-position='-8'] { z-index: 1; transform: translateX(-50%) scale(0.2); -webkit-transform: translateX(-50%) scale(0.2); }
-	.gallery.initialized li[data-position='-7'] { z-index: 2; transform: translateX(-50%) scale(0.3); -webkit-transform: translateX(-50%) scale(0.3); }
-	.gallery.initialized li[data-position='-6'] { z-index: 3; transform: translateX(-50%) scale(0.4); -webkit-transform: translateX(-50%) scale(0.4); }
-	.gallery.initialized li[data-position='-5'] { z-index: 4; transform: translateX(-50%) scale(0.5); -webkit-transform: translateX(-50%) scale(0.5); }
+	.gallery.initialized li[data-position='-9'] { z-index: 0; transform: translateX(-50%) scale(0.1); -webkit-transform: translateX(-50%) scale(0.1); visibility: hidden; }
+	.gallery.initialized li[data-position='-8'] { z-index: 1; transform: translateX(-50%) scale(0.2); -webkit-transform: translateX(-50%) scale(0.2); visibility: hidden; }
+	.gallery.initialized li[data-position='-7'] { z-index: 2; transform: translateX(-50%) scale(0.3); -webkit-transform: translateX(-50%) scale(0.3); visibility: hidden; }
+	.gallery.initialized li[data-position='-6'] { z-index: 3; transform: translateX(-50%) scale(0.4); -webkit-transform: translateX(-50%) scale(0.4); visibility: hidden; }
+	.gallery.initialized li[data-position='-5'] { z-index: 4; transform: translateX(-50%) scale(0.5); -webkit-transform: translateX(-50%) scale(0.5); visibility: hidden; }
 	.gallery.initialized li[data-position='-4'] { z-index: 5; transform: translateX(-50%) scale(0.6); -webkit-transform: translateX(-50%) scale(0.6); }
 	.gallery.initialized li[data-position='-3'] { z-index: 6; transform: translateX(-45%) scale(0.7); -webkit-transform: translateX(-45%) scale(0.7); }
 	.gallery.initialized li[data-position='-2'] { z-index: 7; transform: translateX(-35%) scale(0.8); -webkit-transform: translateX(-35%) scale(0.8); }
@@ -58,11 +58,11 @@ html {
 	.gallery.initialized li[data-position='2']  { z-index: 7; transform: translateX(35%)  scale(0.8); -webkit-transform: translateX(35%)  scale(0.8); }
 	.gallery.initialized li[data-position='3']  { z-index: 6; transform: translateX(45%)  scale(0.7); -webkit-transform: translateX(45%)  scale(0.7); }
 	.gallery.initialized li[data-position='4']  { z-index: 5; transform: translateX(50%)  scale(0.6); -webkit-transform: translateX(50%)  scale(0.6); }
-	.gallery.initialized li[data-position='5']  { z-index: 4; transform: translateX(50%)  scale(0.5); -webkit-transform: translateX(50%)  scale(0.5); }
-	.gallery.initialized li[data-position='6']  { z-index: 3; transform: translateX(50%)  scale(0.4); -webkit-transform: translateX(50%)  scale(0.4); }
-	.gallery.initialized li[data-position='7']  { z-index: 2; transform: translateX(50%)  scale(0.3); -webkit-transform: translateX(50%)  scale(0.3); }
-	.gallery.initialized li[data-position='8']  { z-index: 1; transform: translateX(50%)  scale(0.2); -webkit-transform: translateX(50%)  scale(0.2); }
-	.gallery.initialized li[data-position='9']  { z-index: 0; transform: translateX(50%)  scale(0.1); -webkit-transform: translateX(50%)  scale(0.1); }
+	.gallery.initialized li[data-position='5']  { z-index: 4; transform: translateX(50%)  scale(0.5); -webkit-transform: translateX(50%)  scale(0.5); visibility: hidden; }
+	.gallery.initialized li[data-position='6']  { z-index: 3; transform: translateX(50%)  scale(0.4); -webkit-transform: translateX(50%)  scale(0.4); visibility: hidden; }
+	.gallery.initialized li[data-position='7']  { z-index: 2; transform: translateX(50%)  scale(0.3); -webkit-transform: translateX(50%)  scale(0.3); visibility: hidden; }
+	.gallery.initialized li[data-position='8']  { z-index: 1; transform: translateX(50%)  scale(0.2); -webkit-transform: translateX(50%)  scale(0.2); visibility: hidden; }
+	.gallery.initialized li[data-position='9']  { z-index: 0; transform: translateX(50%)  scale(0.1); -webkit-transform: translateX(50%)  scale(0.1); visibility: hidden; }
 
 	.gallery.initialized li img {
 		box-shadow: rgba(0,0,0,0.5) 0 2px 4px;
