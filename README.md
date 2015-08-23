@@ -11,6 +11,7 @@ Features
 * Progressive enhancement FTW!
 * Supports mouse, keyboard, and touch events.
 * Includes fancy transition effects like blur filters, opacity, and transforms.
+* Height of the gallery will automatically adjust to fit with the tallest caption.
 
 Limitations
 ---
@@ -29,7 +30,7 @@ Structure your gallery HTML as follows:
         </li>
         <li>
             <img src="/path/to/second/image.jpg" alt="">
-            <p>Caption for the second image</p>
+            <-- No caption? No problem! -->
         </li>
         <li>
             <img src="/path/to/third/image.jpg" alt="">
