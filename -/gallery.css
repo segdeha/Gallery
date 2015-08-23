@@ -14,7 +14,7 @@ html {
 
  .gallery {
 	list-style: none;
-	margin: 10px auto;
+	margin: 1em auto;
 	min-height: 540px;
 	overflow: visible;
 	padding: 0;
