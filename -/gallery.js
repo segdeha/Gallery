@@ -70,19 +70,18 @@ var Gallery = (function ( window, document, undefined ) {
 	proto._handleTouch = function ( evt ) {
 		if ( !this.active ) return
 		if ( evt.target.parentNode.parentNode !== this.container ) return
-		var self  = this
 		var start = evt.pageX
-		evt.target.addEventListener( 'touchmove', _handleTouchmove )
+		evt.target.addEventListener( 'touchmove', _handleTouchmove.bind(this) )
 		evt.target.addEventListener( 'touchend', _handleTouchend )
 
 		function _handleTouchmove( evt ) {
 			var pos = evt.pageX
 			if ( pos - start < -20 ) {
-				self.nextSlide()
+				this.nextSlide()
 				_handleTouchend()
 			}
 			else if ( start - Math.abs( pos ) < -20 ) {
-				self.prevSlide()
+				this.prevSlide()
 				_handleTouchend()
 			}
 		}
