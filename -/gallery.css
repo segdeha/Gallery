@@ -1,0 +1,81 @@
+/*
+ * Simple Gallery
+ *
+ * Copyright (c) 2015, Andrew Hedges
+ * http://andrew.hedges.name
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+html {
+	overflow-x: hidden;
+}
+
+ .gallery {
+	list-style: none;
+	margin: 10px auto;
+	min-height: 540px;
+	overflow: visible;
+	padding: 0;
+	position: relative;
+	width: 540px;
+}
+	.gallery li img {
+		height: 540px;
+		width: 540px;
+	}
+
+.gallery.initialized li {
+	background: rgba(255,255,255,0.67);
+	position: absolute;
+	-webkit-transform: translateZ(0);
+	        transform: translateZ(0);
+	-webkit-transition: transform 0.33s;
+	        transition: transform 0.33s;
+}
+	.gallery.initialized li p {
+		color: #333;
+		font-size: 80%;
+		margin: 0;
+		opacity: 0;
+		-webkit-transition: opacity 0.33s;
+		        transition: opacity 0.33s;
+	}
+		.gallery.initialized li[data-position='0'] p {
+			opacity: 1;
+		}
+	/* set stack order, positions and scales */
+	.gallery.initialized li[data-position='-9'] { z-index: 0; transform: translateX(-50%) scale(0.1); -webkit-transform: translateX(-50%) scale(0.1); }
+	.gallery.initialized li[data-position='-8'] { z-index: 1; transform: translateX(-50%) scale(0.2); -webkit-transform: translateX(-50%) scale(0.2); }
+	.gallery.initialized li[data-position='-7'] { z-index: 2; transform: translateX(-50%) scale(0.3); -webkit-transform: translateX(-50%) scale(0.3); }
+	.gallery.initialized li[data-position='-6'] { z-index: 3; transform: translateX(-50%) scale(0.4); -webkit-transform: translateX(-50%) scale(0.4); }
+	.gallery.initialized li[data-position='-5'] { z-index: 4; transform: translateX(-50%) scale(0.5); -webkit-transform: translateX(-50%) scale(0.5); }
+	.gallery.initialized li[data-position='-4'] { z-index: 5; transform: translateX(-50%) scale(0.6); -webkit-transform: translateX(-50%) scale(0.6); }
+	.gallery.initialized li[data-position='-3'] { z-index: 6; transform: translateX(-45%) scale(0.7); -webkit-transform: translateX(-45%) scale(0.7); }
+	.gallery.initialized li[data-position='-2'] { z-index: 7; transform: translateX(-35%) scale(0.8); -webkit-transform: translateX(-35%) scale(0.8); }
+	.gallery.initialized li[data-position='-1'] { z-index: 8; transform: translateX(-20%) scale(0.9); -webkit-transform: translateX(-20%) scale(0.9); }
+	.gallery.initialized li[data-position='0']  { z-index: 9; transform: translateX(0)    scale(1.0); -webkit-transform: translateX(0)    scale(1.0); }
+	.gallery.initialized li[data-position='1']  { z-index: 8; transform: translateX(20%)  scale(0.9); -webkit-transform: translateX(20%)  scale(0.9); }
+	.gallery.initialized li[data-position='2']  { z-index: 7; transform: translateX(35%)  scale(0.8); -webkit-transform: translateX(35%)  scale(0.8); }
+	.gallery.initialized li[data-position='3']  { z-index: 6; transform: translateX(45%)  scale(0.7); -webkit-transform: translateX(45%)  scale(0.7); }
+	.gallery.initialized li[data-position='4']  { z-index: 5; transform: translateX(50%)  scale(0.6); -webkit-transform: translateX(50%)  scale(0.6); }
+	.gallery.initialized li[data-position='5']  { z-index: 4; transform: translateX(50%)  scale(0.5); -webkit-transform: translateX(50%)  scale(0.5); }
+	.gallery.initialized li[data-position='6']  { z-index: 3; transform: translateX(50%)  scale(0.4); -webkit-transform: translateX(50%)  scale(0.4); }
+	.gallery.initialized li[data-position='7']  { z-index: 2; transform: translateX(50%)  scale(0.3); -webkit-transform: translateX(50%)  scale(0.3); }
+	.gallery.initialized li[data-position='8']  { z-index: 1; transform: translateX(50%)  scale(0.2); -webkit-transform: translateX(50%)  scale(0.2); }
+	.gallery.initialized li[data-position='9']  { z-index: 0; transform: translateX(50%)  scale(0.1); -webkit-transform: translateX(50%)  scale(0.1); }
+
+	.gallery.initialized li img {
+		box-shadow: rgba(0,0,0,0.5) 0 2px 4px;
+		-webkit-filter: blur(3px);
+		        filter: blur(3px);
+		opacity: 0.33; 
+		-webkit-transition: opacity 0.25s;
+		        transition: opacity 0.25s;
+	}
+		.gallery.initialized li[data-position='0'] img {
+		-webkit-filter: none;
+		        filter: none;
+			opacity: 1.0;
+		}
