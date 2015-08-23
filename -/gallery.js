@@ -63,7 +63,7 @@ var Gallery = (function ( window, document, undefined ) {
 		var offset = +evt.target.parentNode.dataset.position
 		this.center += offset
 		if      ( this.center > this.items.length - 1 ) this.center = this.items.length - 1
-		else if ( this.center < 0 )                     this.active = 0
+		else if ( this.center < 0 )                     this.center = 0
 		this._setState()
 	}
 
