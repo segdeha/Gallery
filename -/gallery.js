@@ -18,7 +18,6 @@ var Gallery = (function ( window, document, undefined ) {
 			return
 		}
 		this.items  = this.container.getElementsByTagName( 'li' )
-		this.imgs   = this.container.querySelectorAll( 'li img' )
 		this.center = 0
 		this.active = true
 		this._setInitialState()
