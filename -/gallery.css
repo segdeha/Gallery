@@ -19,6 +19,8 @@ html {
 	overflow: visible;
 	padding: 0;
 	position: relative;
+	-webkit-transform: translateZ(0);
+	        transform: translateZ(0);
 	width: 540px;
 }
 	.gallery li img {
@@ -29,8 +31,6 @@ html {
 .gallery.initialized li {
 	background: rgba(255,255,255,0.67);
 	position: absolute;
-	-webkit-transform: translateZ(0);
-	        transform: translateZ(0);
 	-webkit-transition: transform 0.33s;
 	        transition: transform 0.33s;
 }
