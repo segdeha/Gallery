@@ -12,6 +12,7 @@ Features
 * Supports mouse, keyboard, and touch events.
 * Includes fancy transition effects like blur filters, opacity, and transforms.
 * Height of the gallery will automatically adjust to fit with the tallest caption.
+* Exposes methods to navigate to the next and previous slides as well as activate/deactivate the gallery. With this, you can do things such as only have the gallery respond to keyboard events when it is in view and auto-play through the slides. This functionality is left as an exercise for the reader….
 
 Limitations
 ---
