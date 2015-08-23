@@ -1,1 +1,1 @@
-var gallery = new Gallery( document.querySelector( '.gallery' ) )
+var gallery = new Gallery()

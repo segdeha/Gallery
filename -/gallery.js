@@ -12,7 +12,7 @@ var Gallery = (function ( window, document, undefined ) {
 	'use strict'
 
 	function Gallery( container ) {
-		this.container = container || document.getElementById( 'gallery' )
+		this.container = container || document.querySelector( '.gallery' )
 		if ( !this.container ) {
 			throw 'No gallery container found'
 			return

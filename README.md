@@ -20,11 +20,30 @@ Usage
 ---
 Include `gallery.js` and `gallery.css` in your HTML page (see the example page, if that's at all confusing).
 
+Structure your gallery HTML as follows:
+
+    <ul class="gallery">
+        <li>
+            <img src="/path/to/first/image.jpg" alt="">
+            <p>Caption for the first image</p>
+        </li>
+        <li>
+            <img src="/path/to/second/image.jpg" alt="">
+            <p>Caption for the second image</p>
+        </li>
+        <li>
+            <img src="/path/to/third/image.jpg" alt="">
+            <p>Caption for the third image</p>
+        </li>
+    </ul>
+
+(Yeah, that could be more semantic.)
+
 In your own JavaScript, add the following to initialize your gallery:
 
     var gallery = new Gallery()
 
-By default, the constructor will look for an element with the ID of `gallery`. You can also initialize multiple galleries on the page by passing in the gallery elements explicitly, as follows:
+By default, the constructor will look for the first element with the class of `gallery`. You can also initialize multiple galleries on the page by passing in the gallery elements explicitly, as follows:
 
     var gallery1 = new Gallery( document.querySelector( '.gallery1' ) )
     var gallery2 = new Gallery( document.querySelector( '.gallery2' ) )
