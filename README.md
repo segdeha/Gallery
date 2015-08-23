@@ -16,6 +16,7 @@ Features
 Limitations
 ---
 * Like I said, I built this for my own use. So, the image sizes are fixed, at half the size of an Instagram image.
+* Supports a maximum of 10 images per gallery instance.
 
 Usage
 ---
