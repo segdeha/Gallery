@@ -7,7 +7,7 @@ If you do use this, there's no obligation, but I'd love to know. Drop me a line 
 
 Features
 ---
-* MIT license...go to town!
+* [MIT license](https://github.com/segdeha/Gallery/blob/master/LICENSE)...go to town!
 * Progressive enhancement FTW!
 * Supports mouse, keyboard, and touch events.
 * Includes fancy transition effects like blur filters, opacity, and transforms.
