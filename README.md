@@ -16,7 +16,7 @@ Features
 
 Limitations
 ---
-* Like I said, I built this for my own use. So, the image sizes are fixed, at half the size of an Instagram image.
+* Like I said, I built this for my own use. So, the image sizes are fixed, at half the size of an Instagram image. This is all in the CSS, though, so you can override it if you want.
 * Supports a maximum of 10 images per gallery instance.
 
 Usage
