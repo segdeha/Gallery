@@ -35,7 +35,6 @@ html {
 	        transition: transform 0.33s;
 }
 	.gallery.initialized li p {
-		margin: 0;
 		opacity: 0;
 		-webkit-transition: opacity 0.33s;
 		        transition: opacity 0.33s;
