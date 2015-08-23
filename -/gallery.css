@@ -64,10 +64,8 @@ html {
 	.gallery.initialized li[data-position='9']  { display: none; }
 
 	.gallery.initialized li img {
-		box-shadow: rgba(0,0,0,1) 0 2px 4px;
 		-webkit-filter: blur(3px);
 		        filter: blur(3px);
-		
 		-webkit-transition: opacity 0.25s;
 		        transition: opacity 0.25s;
 	}
