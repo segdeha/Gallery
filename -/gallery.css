@@ -31,6 +31,7 @@ html {
 .gallery.initialized li {
 	background: rgba(255,255,255,0.67);
 	cursor: pointer;
+	overflow: hidden;
 	position: absolute;
 	-webkit-transition: -webkit-transform 0.5s ease;
 	        transition: transform 0.5s ease;
