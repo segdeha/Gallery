@@ -25,7 +25,6 @@ var Gallery = (function ( window, document, undefined ) {
 		el.appendChild(this.container)
 
 		this.items  = this.container.getElementsByTagName( 'li' )
-		this.center = 0
 		this.active = true
 		this._setInitialState()
 	}
@@ -39,22 +38,43 @@ var Gallery = (function ( window, document, undefined ) {
 	}
 
 	proto._setInitialState = function () {
-		// compute height
-		var item_height, height = 0
-		for ( var i = 0, l = this.items.length; i < l; ++i ) {
-			item_height = parseInt( window.getComputedStyle( this.items[i], null ).getPropertyValue( 'height' ), 10 )
-			if ( item_height > height ) height = item_height
-		}
-		this.container.style.height = Math.ceil( height ) + 'px'
+		this.center = ( function getCenterFromLocation() {
+			var center = 0
+			var pieces = window.location.hash.split( ':' )
+			// exists
+			if ( '' !== pieces && '' !== pieces[1] ) {
+				center = +pieces[1] + 1
+				if ( isNaN( center ) ) {
+					center = 0
+				}
+				// is a number
+				else {
+					// is within bounds
+					if ( center > this.items.length - 1 ) center = 0
+				}
+			}
+			return center
+		} ).call( this )
+		this.container.style.height = ( function computeHeight() {
+			var item_height, height = 0
+			for ( var i = 0, l = this.items.length; i < l; ++i ) {
+				item_height = parseInt( window.getComputedStyle( this.items[i], null ).getPropertyValue( 'height' ), 10 )
+				if ( item_height > height ) height = item_height
+			}
+			return Math.ceil( height ) + 'px'
+		} ).call( this )
 		this.container.classList.add( 'initialized' )
-		this._setState()
+		this._setState( true )
 		this._addEventListeners()
 	}
 
-	proto._setState = function () {
+	proto._setState = function ( ignorePushState ) {
 		if ( this.items ) {
 			for ( var i = 0, l = this.items.length; i < l; ++i ) {
 				this.items[i].dataset.position = i - this.center
+			}
+			if ( !ignorePushState ) {
+				window.history.pushState( { center : this.center }, '', '#slide:' + ( 1 + this.center ) )
 			}
 		}
 	}
