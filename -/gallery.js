@@ -76,13 +76,21 @@ var Gallery = (function ( window, document, undefined ) {
 
 	proto._handleTouch = function ( evt ) {
 		function handleTouchmove( evt ) {
-			var pos = evt.pageX
-			evt.preventDefault()
-			if ( pos - start < -20 ) {
+			var pos = {
+				x : evt.pageX,
+				y : evt.pageY
+			}
+			// allow vertical swipes
+			if ( Math.abs( start.y - pos.y ) - Math.abs( start.x - pos.x ) > 20 ) {
+				boundTouchend( evt )
+			}
+			else if ( pos.x - start.x < -20 ) {
+				evt.preventDefault()
 				this.nextSlide()
 				boundTouchend( evt )
 			}
-			else if ( start - Math.abs( pos ) < -20 ) {
+			else if ( start.x - pos.x < -20 ) {
+				evt.preventDefault()
 				this.prevSlide()
 				boundTouchend( evt )
 			}
@@ -99,7 +107,10 @@ var Gallery = (function ( window, document, undefined ) {
 		var boundTouchMove = handleTouchmove.bind(this)
 		var boundTouchend  = handleTouchend.bind(this)
 
-		var start = evt.pageX
+		var start = {
+			x : evt.pageX,
+			y : evt.pageY
+		}
 
 		evt.target.addEventListener( 'touchmove', boundTouchMove )
 		evt.target.addEventListener( 'touchend', boundTouchend )
