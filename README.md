@@ -13,6 +13,7 @@ Features
 * Includes fancy transition effects like blur filters, opacity, and transforms.
 * Height of the gallery will automatically adjust to fit with the tallest caption.
 * Exposes methods to navigate to the next and previous slides as well as activate/deactivate the gallery. With this, you can do things such as only have the gallery respond to keyboard events when it is in view and auto-play through the slides. This functionality is left as an exercise for the reader….
+* Supports the JavaScript history API (pushState).
 
 Limitations
 ---
@@ -42,6 +43,8 @@ Structure your gallery HTML as follows:
     </ul>
 
 (Yeah, that could be more semantic.)
+
+The library will wrap your HTML in a `DIV` with the class `gallery-wrapper` that you can use to do things like make it work better within a responsive website. (See [my blog](http://andrew.hedges.name/blog/2015/08/20/segdehabbatical) for an example implementation.)
 
 In your own JavaScript, add the following to initialize your gallery:
 
