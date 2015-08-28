@@ -75,28 +75,34 @@ var Gallery = (function ( window, document, undefined ) {
 	}
 
 	proto._handleTouch = function ( evt ) {
-		if ( !this.active ) return
-		if ( evt.target.parentNode.parentNode !== this.container ) return
-		var start = evt.pageX
-		evt.target.addEventListener( 'touchmove', _handleTouchmove.bind(this) )
-		evt.target.addEventListener( 'touchend', _handleTouchend )
-
-		function _handleTouchmove( evt ) {
+		function handleTouchmove( evt ) {
 			var pos = evt.pageX
+			evt.preventDefault()
 			if ( pos - start < -20 ) {
 				this.nextSlide()
-				_handleTouchend()
+				boundTouchend( evt )
 			}
 			else if ( start - Math.abs( pos ) < -20 ) {
 				this.prevSlide()
-				_handleTouchend()
+				boundTouchend( evt )
 			}
 		}
 
-		function _handleTouchend() {
-			evt.target.removeEventListener( 'touchmove', _handleTouchmove )
-			evt.target.removeEventListener( 'touchend', _handleTouchend )
+		function handleTouchend( evt ) {
+			evt.target.removeEventListener( 'touchmove', boundTouchMove )
+			evt.target.removeEventListener( 'touchend', boundTouchend )
 		}
+
+		if ( !this.active ) return
+		if ( evt.target.parentNode.parentNode !== this.container ) return
+
+		var boundTouchMove = handleTouchmove.bind(this)
+		var boundTouchend  = handleTouchend.bind(this)
+
+		var start = evt.pageX
+
+		evt.target.addEventListener( 'touchmove', boundTouchMove )
+		evt.target.addEventListener( 'touchend', boundTouchend )
 	}
 
 	proto._handleKeyup = function ( evt ) {
