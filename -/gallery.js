@@ -43,7 +43,7 @@ var Gallery = (function ( window, document, undefined ) {
 			var pieces = window.location.hash.split( ':' )
 			// exists
 			if ( '' !== pieces && '' !== pieces[1] ) {
-				center = +pieces[1] + 1
+				center = +pieces[1] - 1
 				if ( isNaN( center ) ) {
 					center = 0
 				}
