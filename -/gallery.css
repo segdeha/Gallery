@@ -54,7 +54,7 @@ html {
 	.gallery.initialized li[data-position='-3'] { z-index: 2; transform: translateX(-45%) scale(0.7); -webkit-transform: -webkit-translateX(-45%) scale(0.7); }
 	.gallery.initialized li[data-position='-2'] { z-index: 3; transform: translateX(-35%) scale(0.8); -webkit-transform: -webkit-translateX(-35%) scale(0.8); }
 	.gallery.initialized li[data-position='-1'] { z-index: 4; transform: translateX(-20%) scale(0.9); -webkit-transform: -webkit-translateX(-20%) scale(0.9); }
-	.gallery.initialized li[data-position='0']  { z-index: 5; transform: translateX(0)    scale(1.0); -webkit-transform: -webkit-translateX(0)    scale(1.0); cursor: auto; }
+	.gallery.initialized li[data-position='0']  { z-index: 5; transform: translateX(0)    scale(1.0); -webkit-transform: -webkit-translateX(0)    scale(1.0); cursor: auto; overflow: hidden; }
 	.gallery.initialized li[data-position='1']  { z-index: 4; transform: translateX(20%)  scale(0.9); -webkit-transform: -webkit-translateX(20%)  scale(0.9); }
 	.gallery.initialized li[data-position='2']  { z-index: 3; transform: translateX(35%)  scale(0.8); -webkit-transform: -webkit-translateX(35%)  scale(0.8); }
 	.gallery.initialized li[data-position='3']  { z-index: 2; transform: translateX(45%)  scale(0.7); -webkit-transform: -webkit-translateX(45%)  scale(0.7); }
