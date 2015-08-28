@@ -17,6 +17,13 @@ var Gallery = (function ( window, document, undefined ) {
 			throw 'No gallery container found'
 			return
 		}
+
+		// wrap the container so we can...um, contain it
+		var el = document.createElement('DIV')
+		el.classList.add('gallery-wrapper')
+		this.container.parentNode.insertBefore(el, this.container)
+		el.appendChild(this.container)
+
 		this.items  = this.container.getElementsByTagName( 'li' )
 		this.center = 0
 		this.active = true
@@ -33,7 +40,7 @@ var Gallery = (function ( window, document, undefined ) {
 
 	proto._setInitialState = function () {
 		// compute height
-		var item_height, height = 540
+		var item_height, height = 0
 		for ( var i = 0, l = this.items.length; i < l; ++i ) {
 			item_height = parseInt( window.getComputedStyle( this.items[i], null ).getPropertyValue( 'height' ), 10 )
 			if ( item_height > height ) height = item_height

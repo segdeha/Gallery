@@ -12,6 +12,11 @@ html {
 	overflow-x: hidden;
 }
 
+.gallery-wrapper {
+	overflow: hidden;
+	width: 100%;
+}
+
  .gallery {
 	list-style: none;
 	margin: 1em auto;
