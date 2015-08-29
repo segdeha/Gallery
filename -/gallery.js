@@ -11,8 +11,22 @@
 var Gallery = ( function( window, document, undefined ) {
     'use strict';
 
-    function Gallery( container ) {
-        this.container = container || document.querySelector( '.gallery' );
+    function Gallery( opts ) {
+        opts = opts || {};
+
+        // feature detection for older browsers
+        // classList is sufficient because it's the feature that's
+        // least available of the possible tricky ones
+        if ( !'classList' in document.body ) {
+            return null;
+        }
+
+        if ( 'string' !== typeof opts.selector ) {
+            opts.selector = '.gallery'
+        }
+        this.container = document.querySelector( opts.selector );
+        this.history   = opts.history || false;
+
         if ( !this.container ) {
             throw 'No gallery container found';
         }
@@ -24,6 +38,7 @@ var Gallery = ( function( window, document, undefined ) {
         el.appendChild(this.container);
 
         this.items  = this.container.getElementsByTagName( 'li' );
+        this.center = 0;
         this.active = true;
         this._setInitialState();
     }
@@ -39,25 +54,28 @@ var Gallery = ( function( window, document, undefined ) {
     };
 
     proto._setInitialState = function () {
-        this.center = ( function getCenterFromLocation() {
-            var center = 0;
-            var pieces = window.location.hash.split( ':' );
-            // exists
-            if ( '' !== pieces && '' !== pieces[1] ) {
-                center = +pieces[1] - 1;
-                if ( isNaN( center ) ) {
-                    center = 0;
-                }
-                // is a number
-                else {
-                    // is within bounds
-                    if ( center > this.items.length - 1 ) {
+        if ( this.history ) {
+            this.center = ( function getCenterFromLocation() {
+                var center = 0;
+                var pieces = window.location.hash.split( ':' );
+                // exists
+                if ( '' !== pieces && '' !== pieces[1] ) {
+                    center = +pieces[1] - 1;
+                    if ( isNaN( center ) ) {
                         center = 0;
                     }
+                    // is a number
+                    else {
+                        // is within bounds
+                        if ( center > this.items.length - 1 ) {
+                            center = 0;
+                        }
+                    }
                 }
-            }
-            return center;
-        } ).call( this );
+                return center;
+            } ).call( this );
+        }
+
         this.container.style.height = ( function computeHeight() {
             var item_height, height = 0;
             for ( var i = 0, l = this.items.length; i < l; ++i ) {
@@ -68,6 +86,7 @@ var Gallery = ( function( window, document, undefined ) {
             }
             return Math.ceil( height ) + 'px';
         } ).call( this );
+
         this.container.classList.add( 'initialized' );
         this._setState( true );
         this._addEventListeners();
@@ -78,7 +97,7 @@ var Gallery = ( function( window, document, undefined ) {
             for ( var i = 0, l = this.items.length; i < l; ++i ) {
                 this.items[i].dataset.position = i - this.center;
             }
-            if ( !ignorePushState ) {
+            if ( !ignorePushState && this.history ) {
                 window.history.pushState( { center : this.center }, '', '#slide:' + ( 1 + this.center ) );
             }
         }
