@@ -22,7 +22,7 @@ var Gallery = ( function( window, document, undefined ) {
         }
 
         if ( 'string' !== typeof opts.selector ) {
-            opts.selector = '.gallery'
+            opts.selector = '.gallery';
         }
         this.container = document.querySelector( opts.selector );
         this.history   = opts.history || false;
@@ -33,8 +33,8 @@ var Gallery = ( function( window, document, undefined ) {
 
         // wrap the container so we can...um, contain it
         var el = document.createElement('DIV');
-        el.classList.add('gallery-wrapper');
-        this.container.parentNode.insertBefore(el, this.container);
+        el.classList.add( 'gallery-wrapper' );
+        this.container.parentNode.insertBefore( el, this.container );
         el.appendChild(this.container);
 
         this.items  = this.container.getElementsByTagName( 'li' );
@@ -158,8 +158,8 @@ var Gallery = ( function( window, document, undefined ) {
             return;
         }
 
-        var boundTouchMove = handleTouchmove.bind(this);
-        var boundTouchend  = handleTouchend.bind(this);
+        var boundTouchMove = handleTouchmove.bind( this );
+        var boundTouchend  = handleTouchend.bind( this );
 
         var start = {
             x : evt.pageX,
@@ -174,10 +174,10 @@ var Gallery = ( function( window, document, undefined ) {
         if ( !this.active ) {
             return;
         }
-        if (37 === evt.keyCode) {
+        if ( 37 === evt.keyCode ) {
             this.prevSlide();
         }
-        else if (39 === evt.keyCode) {
+        else if ( 39 === evt.keyCode ) {
             this.nextSlide();
         }
     };
